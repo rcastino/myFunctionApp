@@ -29,3 +29,11 @@ stages:
             slotName: 'staging'
             package: '$(System.DefaultWorkingDirectory)/'
             deploymentMethod: 'auto'
+
+        - task: AzureAppServiceManage@0
+          inputs:
+            azureSubscription: 'Versione di valutazione gratuita(909e9301-d388-4277-947c-277b65681859)'
+            WebAppName: 'myfunct71'
+            ResourceGroupName: 'myResourceGroup'
+            SourceSlot: staging
+            SwapWithProduction: true
