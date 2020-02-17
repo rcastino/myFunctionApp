@@ -26,6 +26,6 @@ stages:
             appName: 'myfunct71'
             deployToSlotOrASE: true
             resourceGroupName: 'myResourceGroup'
-            slotName: 'production'
+            slotName: 'staging'
             package: '$(System.DefaultWorkingDirectory)/'
             deploymentMethod: 'auto'
