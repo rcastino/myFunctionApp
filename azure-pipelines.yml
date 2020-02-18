@@ -25,5 +25,15 @@ stages:
             rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
             includeRootFolder: false
 
+        - bash: |
+            echo $(Build.ArtifactStagingDirectory)
+            ls -la $(Build.ArtifactStagingDirectory)
+          displayName: 'List Build.ArtifactStagingDirectory'
+
         - task: PublishBuildArtifacts@1
           displayName: 'Publish Artifact: drop'
+
+        - bash: |
+            echo $(Build.ArtifactStagingDirectory)
+            ls -la $(Build.ArtifactStagingDirectory)
+          displayName: 'List Build.ArtifactStagingDirectory after'
