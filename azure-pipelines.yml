@@ -16,24 +16,14 @@ stages:
   - stage: Deploy_staging
     dependsOn: []
     jobs:
-      - job: deploy
+      - job: deploy_without_slot
         steps:
 
-        - task: AzureFunctionApp@1
+        - task: ArchiveFiles@2
+          displayName: 'Archive files'
           inputs:
-            azureSubscription: 'Versione di valutazione gratuita(909e9301-d388-4277-947c-277b65681859)'
-            appType: 'functionApp'
-            appName: 'myfunct71'
-            deployToSlotOrASE: true
-            resourceGroupName: 'myResourceGroup'
-            slotName: 'staging'
-            package: '$(System.DefaultWorkingDirectory)/'
-            deploymentMethod: 'auto'
+            rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+            includeRootFolder: false
 
-        - task: AzureAppServiceManage@0
-          inputs:
-            azureSubscription: 'Versione di valutazione gratuita(909e9301-d388-4277-947c-277b65681859)'
-            WebAppName: 'myfunct71'
-            ResourceGroupName: 'myResourceGroup'
-            SourceSlot: staging
-            SwapWithProduction: true
+        - task: PublishBuildArtifacts@1
+          displayName: 'Publish Artifact: drop'
