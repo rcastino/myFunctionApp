@@ -1,4 +1,4 @@
-# Azure DevOps pipeline to build, check source codes, run tests, and more.
+# LITTLE Azure DevOps pipeline to build, check source codes, run tests, and more.
 #
 # This pipeline has been implemented to be run on hosted agent pools based both
 # on 'windows' and 'ubuntu' virtual machine images and using the scripts defined
